@@ -134,4 +134,13 @@ document.getElementById('editProfileBtn').addEventListener('click', function() {
 });
 </script>
 
+<footer class="site-footer">
+    <div class="footer-content">
+        <!-- тут ваші секції футера -->
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Всі права захищені</p>
+    </div>
+</footer>
+
 <?php include 'includes/footer.php'; ?>

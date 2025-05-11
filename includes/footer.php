@@ -1,4 +1,5 @@
-</main>
+    </main>
+  </div>
 <footer class="site-footer">
     <div class="footer-content">
         <div class="footer-section">
@@ -40,8 +41,8 @@
     padding: 40px 0 20px;
     margin-top: 50px;
     width: 100%;
+    box-sizing: border-box;
 }
-
 .footer-content {
     max-width: 1200px;
     margin: 0 auto;
@@ -50,19 +51,16 @@
     gap: 30px;
     padding: 0 20px;
 }
-
 .footer-section h4 {
     color: #ffffff;
     margin-bottom: 20px;
     font-size: 1.2em;
 }
-
 .social-links {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
-
 .social-link {
     color: #ffffff;
     text-decoration: none;
@@ -71,11 +69,9 @@
     gap: 10px;
     transition: color 0.3s ease;
 }
-
 .social-link:hover {
     color: #007bff;
 }
-
 .footer-link {
     color: #ffffff;
     text-decoration: none;
@@ -83,31 +79,26 @@
     margin-bottom: 10px;
     transition: color 0.3s ease;
 }
-
 .footer-link:hover {
     color: #007bff;
 }
-
 .footer-bottom {
     text-align: center;
     margin-top: 40px;
     padding-top: 20px;
     border-top: 1px solid #333;
 }
-
 /* Адаптивність */
 @media (max-width: 768px) {
     .footer-content {
         grid-template-columns: 1fr;
         text-align: center;
     }
-    
     .social-links {
         align-items: center;
     }
 }
 </style>
-
 <!-- Font Awesome для іконок -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <script src="/project-root/assets/js/main.js"></script>
