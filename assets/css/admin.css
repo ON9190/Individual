@@ -1,0 +1,103 @@
+/* assets/css/admin.css */
+
+/* Задаємо кольорову схему */
+:root {
+    --bg-light:    #f5f5f5;
+    --bg-dark:     #2a2a2a;
+    --text-main:   #333;
+    --text-light:  #fff;
+    --border-grey: #ccc;
+    --accent:      #555;
+  }
+  
+  /* Основні налаштування */
+  body {
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    font-family: Arial, sans-serif;
+    margin: 0;
+  }
+  
+  /* Контейнер контенту */
+  .admin-container {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: #fff;
+    border: 1px solid var(--border-grey);
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.05);
+  }
+  
+  /* Кнопки */
+  .btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+  }
+  .btn:hover {
+    background-color: var(--accent);
+  }
+  
+  /* Меню адміна */
+  .admin-menu {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+  }
+  .admin-menu li {
+    margin-bottom: 0.5rem;
+  }
+  .admin-menu li a {
+    color: var(--bg-dark);
+    text-decoration: none;
+  }
+  .admin-menu li a:hover {
+    color: var(--accent);
+  }
+  
+  /* Таблиці */
+  .admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+  }
+  .admin-table th,
+  .admin-table td {
+    border: 1px solid var(--border-grey);
+    padding: 0.5rem;
+    text-align: left;
+  }
+  .admin-table th {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+  }
+  
+  /* Форми */
+  .admin-form input[type="text"],
+  .admin-form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--border-grey);
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .admin-form button {
+    margin-top: 0.5rem;
+  }
+  
+  /* Мобільна адаптація */
+  @media (max-width: 600px) {
+    .admin-container {
+      margin: 1rem;
+      padding: 0.5rem;
+    }
+    .admin-table th, .admin-table td {
+      padding: 0.3rem;
+    }
+  }
+  
