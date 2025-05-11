@@ -26,20 +26,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $profile_message .= "Пароль оновлено. ";
         }
     }
-    // Завантаження аватара (простий варіант)
+    // Завантаження аватара (сучасний і безпечний варіант)
     if (!empty($_FILES['avatar']['name'])) {
         $ext = strtolower(pathinfo($_FILES['avatar']['name'], PATHINFO_EXTENSION));
         $allowed = ['jpg','jpeg','png','gif'];
-        if (in_array($ext, $allowed)) {
-            $avatar_path = 'assets/img/avatar_' . $_SESSION['user_id'] . '.' . $ext;
+        $maxSize = 2 * 1024 * 1024; // 2MB
+
+        if (!in_array($ext, $allowed)) {
+            $profile_message .= "Дозволені лише jpg, png, gif. ";
+        } elseif ($_FILES['avatar']['size'] > $maxSize) {
+            $profile_message .= "Файл занадто великий (макс. 2MB). ";
+        } else {
+            $avatar_dir = 'assets/img/';
+            if (!is_dir($avatar_dir)) {
+                mkdir($avatar_dir, 0777, true);
+            }
+            $avatar_path = $avatar_dir . 'avatar_' . $_SESSION['user_id'] . '.' . $ext;
             if (move_uploaded_file($_FILES['avatar']['tmp_name'], $avatar_path)) {
                 $stmt = $mysqli->prepare("UPDATE users SET avatar = ? WHERE id = ?");
                 $stmt->bind_param('si', $avatar_path, $_SESSION['user_id']);
                 $stmt->execute();
                 $profile_message .= "Аватар оновлено. ";
+            } else {
+                $profile_message .= "Помилка при завантаженні файлу. ";
             }
-        } else {
-            $profile_message .= "Дозволені лише jpg, png, gif. ";
         }
     }
 }

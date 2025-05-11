@@ -3,7 +3,15 @@ require_once 'functions.php';
 if ($_SERVER['REQUEST_METHOD']==='POST') {
   $username = trim($_POST['username']);
   $password = $_POST['password'];
-  if ($username && $password) {
+
+  // Перевірка, чи логін вже існує
+  $stmt = $mysqli->prepare("SELECT id FROM users WHERE username = ?");
+  $stmt->bind_param('s', $username);
+  $stmt->execute();
+  $stmt->store_result();
+  if ($stmt->num_rows > 0) {
+    $error = 'Користувач з таким логіном вже існує!';
+  } else {
     $hash = password_hash($password, PASSWORD_DEFAULT);
     $stmt = $mysqli->prepare("
       INSERT INTO users (username, password_hash, role, created_at)
@@ -16,8 +24,6 @@ if ($_SERVER['REQUEST_METHOD']==='POST') {
     } else {
       $error = 'Помилка реєстрації';
     }
-  } else {
-    $error = 'Всі поля обов’язкові';
   }
 }
 include 'includes/header.php';
