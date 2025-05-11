@@ -10,7 +10,10 @@
 <?php include __DIR__ . '/navbar.php'; ?>
 <div class="sidebar-overlay" id="sidebarOverlay"></div>
 <?php include __DIR__ . '/sidebar.php'; ?>
-<button class="sidebar-toggle" id="sidebarOpen" aria-label="Відкрити меню">&#9776;</button>
+<button class="sidebar-toggle" id="sidebarOpen" aria-label="Відкрити меню">
+  <span class="sidebar-arrow">&#x25B6;</span>
+  <span class="sidebar-burger">&#9776;</span>
+</button>
 <div class="layout">
   <main class="container">
 
