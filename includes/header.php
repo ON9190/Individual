@@ -17,12 +17,5 @@
 <div class="layout">
   <main class="container">
 
-<script>
-
-function closeSidebar() {
-  sidebar.classList.remove('open');
-  overlay.classList.remove('active');
-}
-closeBtn.addEventListener('click', closeSidebar);
-overlay.addEventListener('click', closeSidebar);
-</script>
+</main>
+</div>
